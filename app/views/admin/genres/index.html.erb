@@ -4,8 +4,9 @@
 <%= form_with model: [:admin, @genre], method: :post do |f| %>
 
 <div>
-  <%= f.label :ジャンル名 %>
-  <%= f.text_field :name %>
+  <%= f.label :name, "ジャンル名" %>
+  <%= f.text_field :name, placeholder: "ジャンル名"  %>
+
   <%= f.submit '新規登録' %>
 </div>
 
