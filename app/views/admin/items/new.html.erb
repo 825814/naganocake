@@ -13,10 +13,8 @@
 
 
   <%= f.label :genre_id, "ジャンル" %>
-
-  <%= f.select :genre_id, Genre.all, {include_blank: '--選択してください--'} %><br>
-
-
+  <%= f.collection_select :genre_id, Genre.all, :id,:name,{include_blank: '--選択してください--'} %><br>
+  
 
   <%= f.label :price, "税抜き価格" %>
   <%= f.text_field :price, placeholder: "1000" %>円<br>
