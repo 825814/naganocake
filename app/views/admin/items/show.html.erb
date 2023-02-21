@@ -1,7 +1,7 @@
 <h2>商品詳細</h2>
 
 <div>
-  <%= image_tag @item.get_image %>
+  <p><%= image_tag @item_new.get_image %></p>
 </div>
 
 <div>
@@ -20,6 +20,6 @@
                    <% end %></p>
 
   <%= link_to "編集する", edit_admin_item_path, class: "btn btn-success btn-sm" %>
-  
+
 </div>
 
