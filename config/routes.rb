@@ -8,6 +8,12 @@ Rails.application.routes.draw do
   devise_for :admins, skip: [:passwords, :registrations], controllers: {
     sessions: "admin/sessions"
   }
+
+ scope module: :public do
+   get '/' => "homes#top"
+
+ end
+
   namespace :admin do
 
     get '/' => "homes#top"
