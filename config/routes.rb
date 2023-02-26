@@ -11,7 +11,8 @@ Rails.application.routes.draw do
 
  scope module: :public do
    get '/' => "homes#top"
-
+   get '/about' => "homes#about"
+   resources :customers
  end
 
   namespace :admin do
