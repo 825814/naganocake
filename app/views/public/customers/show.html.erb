@@ -10,7 +10,7 @@
   <%= link_to "編集する", edit_customer_path, class: "btn btn-success" %><br>
 
   <table>
-    <%#= @customers.each do |customer| %>
+    <%= @customers.each do |customer| %>
     <tr>
       <td>氏名</td><td><%#= customer.last_name + first_name %></td>
     </tr>
@@ -30,6 +30,6 @@
       <td>メールアドレス</td><td><%#= customer.email %></td>
     </tr>
 
-    <%# end %>
+    <% end %>
   </table>
 </body>
