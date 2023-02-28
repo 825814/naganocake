@@ -12,7 +12,7 @@ Rails.application.routes.draw do
  scope module: :public do
    get '/' => "homes#top"
    get '/about' => "homes#about"
-   resources :customers
+   resources :customers, only: [:show, :edit, :update, :unsubscribe, :withdraw]
  end
 
   namespace :admin do
