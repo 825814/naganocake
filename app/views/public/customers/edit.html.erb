@@ -1,6 +1,6 @@
 　<h6>会員情報編集</h6>
 
-  <%= form_with model: @customer do |f| %>
+  <%= form_with model: @customer, url: customers_information_path do |f| %>
 
 　<div class="field">
     <%= f.label :名前 %>
