@@ -13,6 +13,8 @@ Rails.application.routes.draw do
    get '/' => "homes#top"
    get '/about' => "homes#about"
    resources :customers, only: [:show, :edit, :update, :unsubscribe, :withdraw]
+   get '/customers/unsubscribe' => 'customers#unsubscribe', as: 'unsubscribe'
+
  end
 
   namespace :admin do
