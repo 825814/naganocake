@@ -1,0 +1,22 @@
+<div>
+  <p>ジャンル検索</p>
+  <% @genres.each do |genre| %>
+    <%= genre.name %>
+  <% end %>
+</div>
+
+<div>
+  <%= image_tag @item.get_image(400,300) %>
+</div>
+
+<div>
+  <p><strong><%= @item.name %></strong></p>
+  <p><%= @item.introduction %></p>
+  <p><strong>¥<%= (@item.price * 1.1).round.to_s(:delimited) %></strong>(税込)</p>
+
+  <%#= select_tag 'name', ozptions_for_select({sample1: 1, sample2: 2, sample3: 3}, 1), include_blank: true, placeholder: "個数選択" %>
+
+  <%= select_tag :amount, min: 1, max: 20, placeholder: "個数選択" %>
+
+  <%= link_to "カートに入れる", class: "btn btn-success btn-sm" %>
+</div>
