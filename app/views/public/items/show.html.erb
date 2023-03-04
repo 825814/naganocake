@@ -14,10 +14,12 @@
   <p><%= @item.introduction %></p>
   <p><strong>¥<%= (@item.price * 1.1).round.to_s(:delimited) %></strong>(税込)</p>
 
-  <%= select_tag 'name', options_for_select(), include_blank: true, placeholder: "個数選択" %>
+  <%= form_with model: @item, url: item_path(@item) do |f| %>
+  <%= f.number_field :amount, placeholder: "個数選択", min: 1 %>
+  <% end %>
 
 
 
 
-  <%= link_to 　　　　　"カートに入れる", class: "btn btn-success btn-sm" %>
+  <%= link_to "カートに入れる", cart_items_path, class: "btn btn-success btn-sm" %>
 </div>

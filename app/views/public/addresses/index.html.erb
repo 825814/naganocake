@@ -1,6 +1,6 @@
 <h5>配送先登録/一覧</h5>
 
-  <%= form_with model: [:public, @address] do |f| %>
+  <%= form_with model: @address do |f| %>
   <div>
     <%= f.label :"郵便番号（ハイフンなし)" %>
     <%= f.text_field :postal_code, placeholder: "0000000" %>
