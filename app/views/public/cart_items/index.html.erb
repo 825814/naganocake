@@ -22,7 +22,7 @@
 
       <td>
         <%= form_with model: cart_item, url: cart_item_path(cart_item) do |f| %>
-        <%= f.number_field :amount, min: 1 %>
+        <%= f.hidden_field :amount, min: 1 %>
         <%= f.submit "変更" %>
         <% end %>
       </td>
@@ -35,7 +35,7 @@
   </tbody>
 </table>
 
-<%= link_to "買い物を続ける", root_path, class: "btn btn-primary" %>
+<%= link_to "買い物を続ける", '/', class: "btn btn-primary" %>
 
 <table>
   <tr>
