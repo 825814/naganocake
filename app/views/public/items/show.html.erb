@@ -15,7 +15,7 @@
   <p><strong>¥<%= (@item.price * 1.1).round.to_s(:delimited) %></strong>(税込)</p>
 
   <%= form_with model: @cart_item, url: cart_items_path do |f| %>
-  <%= f.hidden_field :title, :value => "naganocake" %>
+  <%= f.hidden_field :item_id, :value => @item.id %>
   <%= f.select :amount, *[1..20], {include_blank: '個数選択'} %>
 
   <%= f.submit "カートに入れる", class: "btn btn-success btn-sm" %>
