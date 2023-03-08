@@ -20,7 +20,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
 
-      <%# if admin_signed_in? %>
+      <% if admin_signed_in? %>
       <li class="nav-link">
         <%= link_to admin_items_path do %>
           <p><button type="button" class="btn btn-outline-dark">商品一覧</button></p>
@@ -52,8 +52,38 @@
         <% end %>
       </li>
 
+      <% elsif customer_signed_in? %>
 
-      <%# end %>
+      <div>
+        <p>ようこそ<%= current_customer.last_name %><%= current_customer.first_name %>さん！</p>
+      </div>
+
+      <li class="nav-link">
+        <%= link_to about_path do %>
+          <p><button type="button" class="btn btn-outline-dark">About</button></p>
+        <% end %>
+      </li>
+
+      <li class="nav-link">
+        <%= link_to items_path do %>
+          <p><button type="button" class="btn btn-outline-dark">商品一覧</button></p>
+        <% end %>
+      </li>
+
+      <li class="nav-link">
+        <%= link_to new_customer_registration_path do %>
+          <p><button type="button" class="btn btn-outline-dark">新規登録</button></p>
+        <% end %>
+      </li>
+
+      <li class="nav-link">
+        <%= link_to new_admin_session_path do %>
+          <p><button type="button" class="btn btn-outline-dark">ログイン</button></p>
+        <% end %>
+      </li>
+
+
+      <% end %>
       </ul>
     </div>
   </nav>
