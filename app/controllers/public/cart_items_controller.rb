@@ -21,14 +21,17 @@ class Public::CartItemsController < ApplicationController
 
     else
     cart_item = CartItem.new(params_cart_item)
+
     # binding.pry
     cart_item.save
+
 
     end
     redirect_to cart_items_path
   end
 
   def destroy
+
     cart_item = CartItem.find(params[:id])
     if cart_item.destroy
     redirect_to cart_items_path
@@ -36,17 +39,21 @@ class Public::CartItemsController < ApplicationController
   end
 
   def destroy_all
-    customer = current_customer.id
-    customer.cart_items.destroy_all
+    current_customer.cart_items.destroy_all
     redirect_to cart_items_path
   end
 
+  def update
+    cart_item = CartItem.find(params[:id])
+    cart_item.update(params_cart_item)
+    redirect_to cart_items_path
+  end
 
   private
 
 
   def params_cart_item
-    params.require(:cart_item).permit(:amount, :item_id,:customer_id)
+    params.require(:cart_item).permit(:amount, :item_id, :customer_id)
   end
 
 end
