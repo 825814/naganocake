@@ -30,6 +30,11 @@ class Public::OrdersController < ApplicationController
   def index
     @orders = current_customer.orders
   end
+  
+  def show
+    @orders = current_customer.orders
+    @toral = 0
+  end
 
 private
 
