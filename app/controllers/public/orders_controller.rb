@@ -27,6 +27,10 @@ class Public::OrdersController < ApplicationController
     @order = current_customer.order
   end
 
+  def index
+    @orders = current_customer.orders
+  end
+
 private
 
 def order_params
