@@ -7,9 +7,9 @@ class Public::OrdersController < ApplicationController
     @addresses = current_customer.address
   end
 
-  def address_display
-  '〒' + postal_code + ' ' + address + ' ' + name
-  end
+  # def address_display
+  # '〒' + postal_code + ' ' + address + ' ' + name
+  # end
 
   def create
     @order = Order.new(order_params)
@@ -19,6 +19,12 @@ class Public::OrdersController < ApplicationController
     else
     render :new
     end
+  end
+
+  def confirm
+    @orders = current_customer.orders
+    @total = 0
+    @order = current_customer.order
   end
 
 private
