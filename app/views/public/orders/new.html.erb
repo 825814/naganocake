@@ -21,20 +21,22 @@
   <%= f.radio_button :address, 0, checked: "checked" %>
   <%= f.label :address, "ご自身の住所" %><br>
 
-  〒<%= @customer.postal_code %><%= @customer.address %><br>
-  <%= @customer.last_name %><%= @customer.first_name %><br>
+  〒<%= @order.customer.postal_code %><%= @order.customer.address %><br>
+  <%= @order.customer.last_name %><%= @order.customer.first_name %><br>
 
   <%= f.radio_button :address, 1 %>
   <%= f.label :address, "登録済住所から選択" %><br>
 
-  <%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :address_display) %>
+  <%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :address_display) %><br>
 
 
 
   <%= f.radio_button :address, 2 %>
   <%= f.label :address, "新しいお届け先" %><br>
 
-  <%#= form_with model: @address do |f| %>
+  <% end %>
+
+  <%= form_with model: @address do |f| %>
   <div>
     <%= f.label :"郵便番号（ハイフンなし)" %>
     <%= f.text_field :postal_code, placeholder: "0000000" %>
@@ -49,10 +51,10 @@
     <%= f.label :宛名 %>
     <%= f.text_field :name, placeholder: "令和道子" %>
   </div>
-  <%# end %>
+  <% end %>
 
 <div>
-  <%= f.submit "確認画面へ進む", class: "btn btn-primary" %>
+  <%= link_to "確認画面へ進む", confirm_path, class: "btn btn-primary" %>
+  <%#= f.submit "確認画面へ進む", class: "btn btn-primary" %>
 </div>
 
-<% end %>

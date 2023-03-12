@@ -1,28 +1,29 @@
 class Public::OrdersController < ApplicationController
+  before_action :authenticate_customer!
 
   def new
-    @order = Order.new
-    @address = Address.new
-    @customer = current_customer
-    @addresses = current_customer.address
+    @order = current_customer.orders.new
+    # @address = Address.new
+    # @customer = current_customer
+    @addresses = current_customer.addresses
   end
 
- 
+
 
   def create
-    @order = Order.new(order_params)
-    if @order.customer_id = current_customer.id
+    @order = current_customer.orders.new(order_params)
+
     @order.save
     redirect_to confirm_path
-    else
-    render :new
-    end
+    # else
+    # render :new
+    # end
   end
 
   def confirm
     @orders = current_customer.orders
     @total = 0
-    @order = current_customer.order
+    @order = Order.new(order_params)
   end
 
   def index
