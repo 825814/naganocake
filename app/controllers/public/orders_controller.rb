@@ -7,9 +7,7 @@ class Public::OrdersController < ApplicationController
     @addresses = current_customer.address
   end
 
-  # def address_display
-  # '〒' + postal_code + ' ' + address + ' ' + name
-  # end
+ 
 
   def create
     @order = Order.new(order_params)
@@ -30,7 +28,7 @@ class Public::OrdersController < ApplicationController
   def index
     @orders = current_customer.orders
   end
-  
+
   def show
     @orders = current_customer.orders
     @toral = 0
