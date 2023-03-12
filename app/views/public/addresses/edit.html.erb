@@ -1,7 +1,7 @@
 <h5>配送先編集</h5>
 
- <%= form_with model: @address, url: addresses_path do |f| %>
- 
+ <%= form_with model: @address do |f| %>
+
   <div>
     <%= f.label :"郵便番号（ハイフンなし)" %>
     <%= f.text_field :postal_code %>
@@ -18,7 +18,9 @@
   </div>
 
   <div>
+    <%#= link_to "変更内容を保存", address_path(@address) %>
     <%= f.submit "変更内容を保存" %>
+
   </div>
 
   <% end %>

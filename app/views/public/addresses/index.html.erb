@@ -1,6 +1,7 @@
 <h5>配送先登録/一覧</h5>
 
-  <%= form_with model: @address do |f| %>
+  <%= form_with model: @address, url: addresses_path do |f| %>
+
   <div>
     <%= f.label :"郵便番号（ハイフンなし)" %>
     <%= f.text_field :postal_code, placeholder: "0000000" %>
@@ -39,11 +40,11 @@
 
       <td><%= address.address %></td>
       <td><%= address.name %></td>
-    <% end %>
 
-      <td><%= link_to "編集する", edit_address_path(@addresses), class: "btn btn-success" %></td>
+
+      <td><%= link_to "編集する", edit_address_path(address.id), class: "btn btn-success" %></td>
       <td><%= link_to "削除する", addresses_path, class: "btn btn-danger" %></td>
-
+     <% end %>
 
     </tr>
   </tbody>
