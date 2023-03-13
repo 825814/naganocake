@@ -5,7 +5,7 @@ class Public::OrdersController < ApplicationController
     @order = current_customer.orders.new
     # @address = Address.new
     # @customer = current_customer
-    @addresses = current_customer.addresses
+    #@addresses = current_customer.addresses
   end
 
 
@@ -23,7 +23,18 @@ class Public::OrdersController < ApplicationController
   def confirm
     @orders = current_customer.orders
     @total = 0
+    binding.pry
     @order = Order.new(order_params)
+    
+    if params[:order][:select_addres] == 0
+    @order.postal_code = current_customer.postal_code
+    @order.address = current_customer.postal_code
+    @order.name = current_customer.first_name + current_customer.last_name
+    
+    else params[:order][:select_addres] == 1
+     
+    end
+    
   end
 
   def index

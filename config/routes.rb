@@ -25,8 +25,10 @@ Rails.application.routes.draw do
    resources :cart_items, only: [:index, :destroy, :create, :update]
 
    post '/orders/confirm' => 'orders#confirm', as: 'confirm'
-   get '/orders/complete' => 'orders#complete', as: 'conplete'
+   get '/orders/complete' => 'orders#complete', as: 'complete'
+
    resources :orders, only: [:new, :create, :index, :show]
+
  end
 
   namespace :admin do
