@@ -21,20 +21,31 @@ class Public::OrdersController < ApplicationController
   end
 
   def confirm
-    @orders = current_customer.orders
-    @total = 0
+    # @orders = current_customer.orders
+    # @total = 0
+
+
+    # @order = Order.new(order_params)
     binding.pry
-    @order = Order.new(order_params)
-    
-    if params[:order][:select_addres] == 0
-    @order.postal_code = current_customer.postal_code
-    @order.address = current_customer.postal_code
-    @order.name = current_customer.first_name + current_customer.last_name
-    
-    else params[:order][:select_addres] == 1
-     
-    end
-    
+q
+
+
+    # if params[:order][:select_address] == 0
+
+    # @order = Order.new(order_params)
+    # @order.postal_code = current_customer.postal_code
+    # @order.address = current_customer.postal_code
+    # @order.name = current_customer.first_name + current_customer.last_name
+
+    # else params[:order][:select_address] == 1
+    # @order = Order.new(order_params)
+    # @address = Address.find(params[:order][:address_id])
+    # @order.postal_code = @address.postal_code
+    # @order.address = @address.address
+    # @order.name = @addresqs.name
+
+    # end
+
   end
 
   def index
@@ -48,8 +59,9 @@ class Public::OrdersController < ApplicationController
 
 private
 
-def order_params
-  params.require(:order).permit(:customer_id, :postal_code, :address, :name, :shipping_cost, :total_payment, :payment_method, :status)
-end
+  def order_params
+    # params.require(:order).permit(:customer_id, :postal_code, :address, :name, :shipping_cost, :total_payment, :payment_method, :status)
+    params.require(:order).permit(:payment_method)
+  end
 
 end
