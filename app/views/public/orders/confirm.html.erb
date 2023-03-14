@@ -14,7 +14,7 @@
   <tbody>
     <% @orders.each do |order| %>
     <tr>
-        <td><%= image_tag order.item.get_image(40,30) %><%= order.item.name %></td>
+        <td><%= image_tag order.cart_item.item.get_image(40,30) %><%= order.cart_item.item.name %></td>
         <td><%= order.item.with_tax_price %></td>
         <td><%= order.cart_item.amount %></td>
         <td><%= order.cart_item.subtotal %></td>
@@ -27,23 +27,28 @@
   </table>
 
   <table>
+    <%= form_with model: @order, url: complete_path, method: :get do |f| %>
     <tr>
       <th>送料</th>
       <th>商品合計</th>
       <th>請求金額</th>
-    　<td><%= @order.shipping_cost %></td>
-    　<td><%= @total %></td>
-    　<td><%= @order.total_payment %></td>
+      <td><%= @order.shipping_cost %></td>
+      <td><%= @total %></td>
+      <td><%= @order.total_payment %></td>
     </tr>
   </table>
 
 <div>
   <p>支払い方法<%= @order.payment_method %></p>
-  <p>お届け先<%= @order.postal_code %><%= @order.address %><br>
+
+  <p>お届け先〒<%= @order.postal_code %><%= @order.address %><br>
      <%= @order.name %>
   </p>
 </div>
 
 <div>
-  <%= link_to "注文を確定する", complete_path, class: "btn btn-success" %>
+  <%= f.submit "注文を確定する", class: "btn btn-sucsess" %>
+  <%#= link_to "注文を確定する", complete_path, class: "btn btn-success" %>
 </div>
+
+<% end %>
