@@ -23,13 +23,9 @@ class Public::OrdersController < ApplicationController
   def confirm
 
     @orders = current_customer.orders
-    @total = 0
-
 
     @order = Order.new(order_params)
     # binding.pry
-
-
 
     if params[:order][:select_address] == "0"
 
@@ -52,8 +48,17 @@ class Public::OrdersController < ApplicationController
 
 
     end
-
+     @total = 0
+     @cart_items = current_customer.cart_items.all
+    # @order.shipping_cost = 800
+    # @total += cart_item.subtotal
+    # @order.total_payment = @total + @order.shipping_cost
   end
+
+  # def subtotal
+  #   item.with_tax_price * amount
+  # end
+
 
   def index
     @orders = current_customer.orders
