@@ -11,13 +11,14 @@ class Public::OrdersController < ApplicationController
 
 
   def create
-    @order = current_customer.orders.new(order_params)
+    #@order = current_customer.orders.new(order_params)
+    @order = Order.new(order_params)
+    @order.customer_id = current_customer.id
 
+    binding.pry
     @order.save
-    redirect_to confirm_path
-    # else
-    # render :new
-    # end
+    redirect_to complete_path
+
   end
 
   def confirm
@@ -31,7 +32,7 @@ class Public::OrdersController < ApplicationController
 
     @order.postal_code = current_customer.postal_code
     @order.address = current_customer.address
-    @order.name = current_customer.first_name + current_customer.last_name
+    @order.name = current_customer.last_name + current_customer.first_name
 
     elsif params[:order][:select_address] == "1"
 
@@ -67,13 +68,14 @@ class Public::OrdersController < ApplicationController
   def show
     @orders = current_customer.orders
     @toral = 0
+
   end
 
 private
 
   def order_params
-    # params.require(:order).permit(:customer_id, :postal_code, :address, :name, :shipping_cost, :total_payment, :payment_method, :status)
-    params.require(:order).permit(:payment_method, :postal_code, :address, :name)
+    params.require(:order).permit(:customer_id, :postal_code, :address, :name, :shipping_cost, :total_payment, :payment_method, :status)
+    #params.require(:order).permit(:payment_method, :postal_code, :address, :name, :shipping_cost, :total_payment)
   end
 
 end

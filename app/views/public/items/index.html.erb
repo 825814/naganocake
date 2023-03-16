@@ -9,9 +9,10 @@
 
   <% @items.each do |item| %>
     <%= link_to item_path(item.id) do %>
-    <%= image_tag item.get_image(200,150) %>
-    <% end %><br>
+    <%= image_tag item.get_image(200,150) %><br>
     <%= item.name %><br>
+    <% end %><br>
+
     ¥<%= item.price.to_s(:delimited) %><br>
   <% end %>
 
