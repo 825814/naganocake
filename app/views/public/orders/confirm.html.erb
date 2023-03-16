@@ -37,8 +37,10 @@
       <td><%= @total %></td>
           <%= @order.total_payment = @total + @order.shipping_cost %>
       <td><%= @order.total_payment %></td>
+      
     </tr>
   </table>
+   
 
 <div>
   <p>支払い方法<%= @order.payment_method_i18n %></p>
@@ -54,4 +56,8 @@
 </div>
 
 <% end %>
+
+
+
+
 

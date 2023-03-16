@@ -19,11 +19,11 @@
   <%= f.label :price, "税抜き価格" %>
   <%= f.text_field :price %>円<br>
 
-  <%= f.label :is_active, "販売ステータス" %>
-  <%= f.radio_button :item, :true %>
-  <%= f.label :item, "販売中" %>
-  <%= f.radio_button :item, :false %>
-  <%= f.label :item, "販売停止中" %><br>
+  <%= f.label :"販売ステータス" %>
+  <%= f.radio_button :is_active, :true %>
+  <%= f.label :is_active, "販売中" %>
+  <%= f.radio_button :is_active, :false %>
+  <%= f.label :is_active, "販売停止中" %><br>
 
   <%= f.submit '変更を保存' %>
 </div>
