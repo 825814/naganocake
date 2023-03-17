@@ -15,7 +15,7 @@ class Public::OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
 
-    binding.pry
+    # binding.pry
     @order.save
     redirect_to complete_path
 
