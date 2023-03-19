@@ -21,7 +21,11 @@
             <%= order.address %><br>
             <%= order.name %>
         </td>
-        <td><%= order.item.name %></td>
+        <td>
+          <% order.order_details.each do |order_detail| %>
+          <%= order_detail.item.name %>
+          <% end %>
+          </td>
             <%#= @order.total_payment = @total + @order.shipping_cost %>
         <td><%= order.total_payment %></td>
         <td><%= order.status %></td>
