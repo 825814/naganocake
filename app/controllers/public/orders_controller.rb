@@ -16,8 +16,25 @@ class Public::OrdersController < ApplicationController
     @order.customer_id = current_customer.id
 
     # binding.pry
-    @order.save
+    if @order.save
+
+      order_details.each do |order_detail|
+        order_detail = Orderdetail.new
+        order_detail.order_id = @order.id
+        order_detail.item_id = cart_item.item_id
+        order_detail.item.name = cart_item.item.name
+        order_detail.amount = cart_item.amount
+        order_detail.price = cart_item.item.price
+        order_detail.save
+      end
+
     redirect_to complete_path
+    order_details.destroy_all
+
+    else
+      @order = Order.new
+      render :new
+    end
 
   end
 
@@ -67,7 +84,8 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
-    @orders = current_customer.orders
+    @order = Order.find(params[:id])
+    @order_details = @order.order_details
     @toral = 0
 
   end
