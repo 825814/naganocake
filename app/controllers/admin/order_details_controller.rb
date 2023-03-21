@@ -4,6 +4,11 @@ class Admin::OrderDetailsController < ApplicationController
     @order_details = OrderDetail.find(params[:id])
   end
   
+  # def show
+  #   @order = Order.find(params[:id])
+  #   @order_details = OrderDetail.all
+  # end
+  
   def update
     order_detail = OrderDetail.find(params[:id])
     order_detail.update(order_detail_params)

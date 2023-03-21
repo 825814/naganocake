@@ -9,7 +9,7 @@
   </p>
   <p>支払い方法<%= @order.payment_method %></p>
   <p>
-     <%= form_with model: order_detail, url: admin_order_path(order_detail), method: :patch do |f| %>
+     <%= form_with model: order, url: admin_order_path(order.id), method: :patch do |f| %>
        <%= f.label :status, "注文ステータス" %>
        <%= f.select :status, ['入金待ち', '入金確認', '製作中', '発送準備中', '発送済み'] %>
      <% end %>
@@ -30,7 +30,10 @@
 
     <tbody>
       <tr>
+
         <%= @order_details.each do |order_detail| %>
+
+        <%= form_with model: order_detail, url: order_detail_path(order_detail.id), method: :patch do |f| %>
 
         <td><%= order_detail.item.name %></td>
         <td><%= order_detail.price %></td>
@@ -47,6 +50,7 @@
           製作完了
           <% end %>
         </td>
+        <% end %>
         <% end %>
       </tr>
     </tbody>
