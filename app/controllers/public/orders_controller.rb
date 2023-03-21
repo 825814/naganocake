@@ -11,12 +11,14 @@ class Public::OrdersController < ApplicationController
 
 
   def create
-    #@order = current_customer.orders.new(order_params)
-    @order = Order.new(order_params)
-    @order.customer_id = current_customer.id
+    order_details = current_customer.order_details
+    @order = current_customer.orders.new(order_params)
+   # @order = Order.new(order_params)
+    #@order.customer_id = current_customer.id
 
     # binding.pry
     if @order.save
+
 
       order_details.each do |order_detail|
         order_detail = Orderdetail.new

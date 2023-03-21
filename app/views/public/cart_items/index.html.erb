@@ -16,6 +16,9 @@
 
 
   <tbody>
+    <%= form_with model: @cart_items, url: cart_items_path, method: :post do |f|%>
+    <%#= form_with model: @cart_items, url: new_order_path, method: :get do |f|%>
+
     <% @cart_items.each do |cart_item| %>
     <tr>
       <td><%= image_tag cart_item.item.get_image(40,30) %><%= cart_item.item.name %></td>
@@ -50,9 +53,10 @@
   </tr>
 </table>
 
-        <%= form_with model: @cart_items, url: new_order_path, method: :get do |f|%>
+        <%#= form_with model: @cart_items, url: new_order_path, method: :get do |f|%>
 
-          <%#= f.amount %>
+
           <%= f.submit "情報入力に進む", class: "btn btn-success" %>
         <%#= link_to "情報入力に進む", new_order_path, class: "btn btn-success" %>
-        <% end %>
+      <% end %>
+
