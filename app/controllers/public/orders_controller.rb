@@ -11,7 +11,7 @@ class Public::OrdersController < ApplicationController
 
 
   def create
-    order_details = current_customer.order_details
+    #order_details = current_customer.order_details
     @order = current_customer.orders.new(order_params)
    # @order = Order.new(order_params)
     #@order.customer_id = current_customer.id
@@ -19,22 +19,24 @@ class Public::OrdersController < ApplicationController
     # binding.pry
     if @order.save
 
-
-      order_details.each do |order_detail|
-        order_detail = Orderdetail.new
+      cart_items = current_customer.cart_items
+      cart_items.each do |cart_item|
+        order_detail = OrderDetail.new
         order_detail.order_id = @order.id
         order_detail.item_id = cart_item.item_id
-        order_detail.item.name = cart_item.item.name
+        #order_detail.item.name = cart_item.item.name
         order_detail.amount = cart_item.amount
-        order_detail.price = cart_item.item.price
+        order_detail.price = cart_item.item.with_tax_price
+        order_detail.making_status = 0
         order_detail.save
       end
 
+
+    cart_items.destroy_all
     redirect_to complete_path
-    order_details.destroy_all
 
     else
-      @order = Order.new
+
       render :new
     end
 

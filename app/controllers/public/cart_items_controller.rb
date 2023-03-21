@@ -29,7 +29,8 @@ class Public::CartItemsController < ApplicationController
 
     end
     redirect_to cart_items_path
-    
+    #redirect_to new_order_path
+
   end
 
   def destroy
