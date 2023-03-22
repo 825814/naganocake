@@ -20,7 +20,38 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
 
-      <% if admin_signed_in? %>
+
+      <% if customer_signed_in? %>
+
+      <div>
+        <p>ようこそ<%= current_customer.last_name %><%= current_customer.first_name %>さん！</p>
+      </div>
+
+      <li class="nav-link">
+        <%= link_to customers_my_page_path do %>
+          <p><button type="button" class="btn btn-outline-dark">マイページ</button></p>
+        <% end %>
+      </li>
+
+      <li class="nav-link">
+        <%= link_to items_path do %>
+          <p><button type="button" class="btn btn-outline-dark">商品一覧</button></p>
+        <% end %>
+      </li>
+
+      <li class="nav-link">
+        <%= link_to cart_items_path do %>
+          <p><button type="button" class="btn btn-outline-dark">カート</button></p>
+        <% end %>
+      </li>
+
+      <li class="nav-link">
+        <%= link_to root_path do %>
+          <p><button type="button" class="btn btn-outline-dark">ログアウト</button></p>
+        <% end %>
+      </li>
+
+      <% elsif admin_signed_in? %>
       <li class="nav-link">
         <%= link_to admin_items_path do %>
           <p><button type="button" class="btn btn-outline-dark">商品一覧</button></p>
@@ -52,38 +83,6 @@
         <% end %>
       </li>
 
-      <% end %>
-
-      <% if customer_signed_in? %>
-
-      <div>
-        <p>ようこそ<%= current_customer.last_name %><%= current_customer.first_name %>さん！</p>
-      </div>
-
-      <li class="nav-link">
-        <%= link_to customers_my_page_path do %>
-          <p><button type="button" class="btn btn-outline-dark">マイページ</button></p>
-        <% end %>
-      </li>
-
-      <li class="nav-link">
-        <%= link_to items_path do %>
-          <p><button type="button" class="btn btn-outline-dark">商品一覧</button></p>
-        <% end %>
-      </li>
-
-      <li class="nav-link">
-        <%= link_to cart_items_path do %>
-          <p><button type="button" class="btn btn-outline-dark">カート</button></p>
-        <% end %>
-      </li>
-
-      <li class="nav-link">
-
-        <%= link_to destroy_customer_session_path, method: :delete do %>
-          <p><button type="button" class="btn btn-outline-dark">ログアウト</button></p>
-        <% end %>
-      </li>
 
       <% else %>
 

@@ -38,7 +38,8 @@
         <td><%= order_detail.item.name %></td>
         <td><%= order_detail.price %></td>
         <td><%= order_detail.amount %></td>
-        <td><%= order_detail.order.total_payment %></td>
+        <td><%= order_detail.subtotal %></td>
+
 
         <%= form_with model: order_detail, url: admin_order_detail_path(order_detail.id), method: :patch do |f| %>
         <td>
@@ -53,4 +54,9 @@
       </tr>
     </tbody>
   </table>
+
+  <p>商品合計<%= @order.total_payment - @order.shipping_cost %></p>
+  <p>送料<%= @order.shipping_cost %></p>
+  <p>請求金額合計<%= @order.total_payment %></p>
+
 </div>
