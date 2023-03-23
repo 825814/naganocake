@@ -29,6 +29,13 @@ class Public::AddressesController < ApplicationController
       redirect_to addresses_path
   end
 
+  def destroy
+    @address = current_customer.addresses.find(params[:id])
+    # byebug
+    @address.destroy
+      redirect_to addresses_path
+  end
+
 
   private
 
