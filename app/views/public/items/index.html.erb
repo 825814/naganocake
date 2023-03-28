@@ -5,15 +5,27 @@
 <!--  <%# end %>-->
 <!--</div>-->
 
-<h5>商品一覧<p>(全<%= @items.count %>件)</p></h5>
+<p id="notice"></p>
+<div class="container">
 
-  <% @items.each do |item| %>
-    <%= link_to item_path(item.id) do %>
-    <%= image_tag item.get_image(200,150) %><br>
-    <%= item.name %><br>
-    <% end %><br>
+  <div class="row">
 
-    ¥<%= item.price.to_s(:delimited) %><br>
-  <% end %>
+    <h5><strong>商品一覧</strong>(全<%= @all_item.count %>件)</h5>
+  </div>
 
-  <%= paginate @items %>
+  <div class="row">
+    <div class="col d-flex">
+    <% @items.each do |item| %>
+    <div>
+      <%= link_to item_path(item.id) do %>
+      <%= image_tag item.get_image(200,150) %><br>
+      <% end %>
+      <h3><%= item.name %></h3>
+      <div>¥<%= item.price.to_s(:delimited) %></div>
+    </div>
+    <% end %>
+    </div>
+  </div>
+    <%= paginate @items %>
+
+</div>

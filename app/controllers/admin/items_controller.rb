@@ -13,6 +13,7 @@ class Admin::ItemsController < ApplicationController
   end
 
   def index
+
     @items = Item.page(params[:page])
   end
 

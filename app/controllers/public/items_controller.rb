@@ -2,7 +2,8 @@ class Public::ItemsController < ApplicationController
 
   def index
     # @genres = Genre.all
-    @items = Item.page(params[:page])
+    @all_item = Item.all
+    @items = Item.page(params[:page]).per(8)
   end
 
   def show
