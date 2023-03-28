@@ -20,10 +20,8 @@
   box-sizing: border-box;
 }
 
-/*.pagination {*/
-/*  justify-content: center;*/
-/*}*/
-
-.pageWrapper {
-  text-align:center;
+.pagination {
+  justify-content: center;
 }
+
+
