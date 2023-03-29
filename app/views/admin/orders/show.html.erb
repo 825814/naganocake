@@ -6,9 +6,10 @@
     <h5 class="bg-light text-dark">注文履歴詳細</h5>
   </div>
 
-  <div class="row">
-    <div>
-      <p>購入者<%= @order.customer.last_name %><%= @order.customer.first_name %></p>
+    <div class="row">
+      <p class="col-md-2">購入者</p><p class="col-md-2"><%= @order.customer.last_name %><%= @order.customer.first_name %></p>
+    </div>
+
       <p>注文日<%= @order.created_at.strftime('%Y/%m/%d') %></p>
       <p>配送先
         <%= @order.address %><br>
