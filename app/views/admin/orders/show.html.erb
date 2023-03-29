@@ -10,22 +10,35 @@
       <p class="col-md-2">購入者</p><p class="col-md-2"><%= @order.customer.last_name %><%= @order.customer.first_name %></p>
     </div>
 
-      <p>注文日<%= @order.created_at.strftime('%Y/%m/%d') %></p>
-      <p>配送先
-        <%= @order.address %><br>
-        <%= @order.name %>
-      </p>
-      <p>支払い方法<%= @order.payment_method_i18n %></p>
-      <p>
+    <div class="row">
+      <p class="col-md-2">注文日</p><p class="col-md-2"><%= @order.created_at.strftime('%Y/%m/%d') %></p>
+    </div>
+
+    <div class="row">
+      <p class="col-md-2">配送先</p>
+      <p class="col-md-8"><%= @order.address %><br><%= @order.name %></p>
+    </div>
+
+    <div class="row">
+      <p class="col-md-2">支払い方法</p><p class="col-md-2"><%= @order.payment_method_i18n %></p>
+    </div>
+
+    <div class="row">
+
          <%= form_with model: @order, url: admin_order_path(@order), method: :patch do |f| %>
            <%= f.label :status, "注文ステータス" %>
+                                                 <!--, class: "col-md-2 col-form-label"-->
+
            <%= f.select :status, ['入金待ち', '入金確認', '製作中', '発送準備中', '発送済み'] %>
            <%#= f.select :status, @order.status,{ 入金待ち: 0, 入金確認: 1, 製作中: 2, 配送準備中: 3, 配送済み: 4} %>
+
+
            <%= f.submit "更新", class:" btn btn-success" %>
+
          <% end %>
-      </p>
+
     </div>
-  </div>
+
 
   <div class="row">
     <div class="col-md-9">
@@ -65,6 +78,7 @@
         </tbody>
       </table>
     </div>
+
 
     <div class="col-md-3">
       <div class="example">
