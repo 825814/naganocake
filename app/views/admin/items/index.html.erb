@@ -1,27 +1,11 @@
 <p id="notice"></p>
 <div class="container">
 
-<nav class="navbar navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand">Navbar</a>
-    <form class="d-flex">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success" type="submit">Search</button>
-    </form>
-  </div>
-</nav>
-
-<div class="flex">
-  <div>1</div>
-  <div>2</div>
-  <div>3</div>
-</div>
-
   <div class="row">
-    <div class="pull-left">
-      <h5 class="bg-light text-dark">商品一覧</h5>
+    <div class="col-md-11">
+      <h5 class="bg-light col-md-2 text-dark">商品一覧</h5>
     </div>
-    <div class="pull-right">
+    <div class="col-md-1">
     <%= link_to new_admin_item_path do %>
       <i class="fa fa-plus-circle"></i>
     <% end %>
@@ -67,6 +51,11 @@
       </table>
     </div>
   </div>
-<%= paginate @items %>
 
+  <div class="row">
+    <div class="d-block mx-auto">
+    <!--<div class="col-md-2 offset-md-5">-->
+      <%= paginate @items %>
+    </div>
+  </div>
 </div>
