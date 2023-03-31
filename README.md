@@ -53,39 +53,21 @@ InstagramのDMやメールで通販の注文を受けていたが、情報管理
   - 新規追加、編集、閲覧  
   - 販売停止（売切表示）  
 -商品情報は下記のものを持つ  
-  -商品名  
-  -商品説明文  
-  -税抜価格  
-  -商品画像  
+  - 商品名  
+  - 商品説明文  
+  - 税抜価格  
+  - 商品画像  
 - 会員登録されているユーザ情報の閲覧、編集、退会処理が行える  
 - ユーザの注文履歴が一覧・詳細表示でき、下記の情報が表示される  
 ### 【注文履歴一覧】  
-  -購入日時  
-  -購入者  
-  -注文個数  
+  - 購入日時  
+  - 購入者  
+  - 注文個数  
 ### 【注文履歴詳細】  
-  -購入者  
-  -注文日  
-  -配送先  
-  -支払方法  
-  -料金（商品合計、送料、請求金額合計）  
+  - 購入者  
+  - 注文日  
+  - 配送先  
+  - 支払方法  
+  - 料金（商品合計、送料、請求金額合計）  
 
 
-* rr
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
