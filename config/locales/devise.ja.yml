@@ -1,3 +1,15 @@
+# ja:
+#   activerecord:
+#     errors:
+#       models:
+#         customer:
+#           attributes:
+#             email:
+#               blank: タイトルが空白です
+#               taken: はすでに存在します
+
+
+
 ja:
   activerecord:
     attributes:
